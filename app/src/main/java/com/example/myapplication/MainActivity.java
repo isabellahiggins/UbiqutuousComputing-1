@@ -1,6 +1,8 @@
 package com.example.myapplication;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +11,9 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
+
+    public int clickCount = 0;
+    public TextView buttonCountText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,5 +25,12 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        buttonCountText = findViewById(R.id.textId);
+    }
+
+    public void buttonClick(View clickButton){
+        clickCount++;
+        buttonCountText.setText("" + clickCount);
     }
 }
